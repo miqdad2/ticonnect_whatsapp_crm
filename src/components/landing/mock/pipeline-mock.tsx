@@ -1,7 +1,3 @@
-/**
- * Miniature kanban pipeline with three stages and a handful of fake
- * deal cards. Feature-spotlight for the Pipelines section.
- */
 export function PipelineMock() {
   const stages = [
     {
@@ -23,19 +19,19 @@ export function PipelineMock() {
     },
     {
       name: 'Won',
-      color: 'bg-violet-500',
+      color: 'bg-emerald-500',
       deals: [{ title: 'Lagoon Spa', value: '$3,200' }],
     },
   ]
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl">
+    <div className="w-full overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-2xl">
       <div className="flex items-center gap-1.5 border-b border-slate-800 bg-slate-900 px-3 py-2">
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="ml-3 text-[10px] text-slate-500">
-          Pipelines — CRM Template for WhatsApp
+          Pipelines - Ticonnect WhatsApp CRM
         </span>
       </div>
 

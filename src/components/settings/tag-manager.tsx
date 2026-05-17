@@ -26,7 +26,7 @@ const PRESET_COLORS = [
   { name: 'Emerald', value: '#10b981' },
   { name: 'Cyan', value: '#06b6d4' },
   { name: 'Blue', value: '#3b82f6' },
-  { name: 'Violet', value: '#8b5cf6' },
+  { name: 'sky', value: '#8b5cf6' },
   { name: 'Pink', value: '#ec4899' },
 ];
 
@@ -142,7 +142,7 @@ export function TagManager() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <Loader2 className="size-6 animate-spin text-violet-500" />
+        <Loader2 className="size-6 animate-spin text-sky-500" />
       </div>
     );
   }
@@ -160,7 +160,7 @@ export function TagManager() {
             setSelectedColor(PRESET_COLORS[3].value);
             setDialogOpen(true);
           }}
-          className="bg-violet-600 hover:bg-violet-700 text-white"
+          className="bg-sky-600 hover:bg-sky-700 text-white"
         >
           <Plus className="size-4" />
           New Tag
@@ -281,7 +281,7 @@ export function TagManager() {
             <Button
               onClick={handleCreate}
               disabled={saving}
-              className="bg-violet-600 hover:bg-violet-700 text-white"
+              className="bg-sky-600 hover:bg-sky-700 text-white"
             >
               {saving ? (
                 <>

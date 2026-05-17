@@ -1,38 +1,36 @@
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, MessageSquare } from 'lucide-react'
 import { Section } from './section'
 
-/**
- * Last push before the footer. Visually distinct (border, gradient
- * background) so it doesn't read as "just another section".
- */
 export function CtaBanner() {
   return (
     <Section className="py-16 sm:py-20">
-      <div
-        className="relative overflow-hidden rounded-2xl border border-violet-500/20 bg-slate-900/70 px-6 py-16 text-center sm:px-12 sm:py-20"
-        style={{
-          background:
-            'radial-gradient(800px circle at 50% -40%, rgb(139 92 246 / 0.18), transparent 60%), linear-gradient(to bottom, rgb(15 23 42 / 0.9), rgb(15 23 42 / 0.7))',
-        }}
-      >
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          Ready to stop switching between tools?
-        </h2>
-        <p className="mt-4 text-base text-slate-400">
-          Bring your WhatsApp conversations, contacts, and deals into one place.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <div className="grid grid-cols-1 gap-8 overflow-hidden rounded-xl border border-sky-400/25 bg-[#071827] p-6 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-sky-400/25 bg-sky-400/10 px-3 py-1 text-xs font-medium text-sky-100">
+            <MessageSquare className="h-3.5 w-3.5 text-sky-300" />
+            WhatsApp CRM built for growth teams
+          </div>
+          <h2 className="mt-5 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            Give clients the fastest path from message to answer.
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400">
+            Start with the shared inbox, then add pipelines, broadcasts, and
+            automations as the team scales.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-3 lg:justify-end">
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 rounded-lg bg-violet-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-violet-400"
+            className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-sky-500 px-6 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-sky-300"
           >
-            Get started free
+            Start Ticonnect WhatsApp CRM
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/login"
-            className="inline-flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-900 px-6 py-3 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-600 hover:text-white"
+            className="inline-flex min-h-12 items-center gap-2 rounded-lg border border-slate-600 bg-slate-950/50 px-6 py-3 text-sm font-semibold text-slate-100 transition-colors hover:border-sky-300"
           >
             Sign in
           </Link>

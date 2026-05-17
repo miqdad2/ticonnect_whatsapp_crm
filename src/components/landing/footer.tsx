@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { MessageSquare } from 'lucide-react'
+﻿import Link from 'next/link'
+import { TiconnectLogo } from '@/components/brand/ticonnect-logo'
 
 export function Footer() {
   const year = new Date().getFullYear()
@@ -7,55 +7,39 @@ export function Footer() {
     <footer className="border-t border-slate-800 bg-slate-950">
       <div className="mx-auto grid w-full max-w-7xl grid-cols-2 gap-8 px-6 py-12 sm:grid-cols-5">
         <div className="col-span-2 sm:col-span-2">
-          <Link
-            href="/"
-            className="flex items-center gap-2"
-            aria-label="CRM Template for WhatsApp home"
-          >
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500">
-              <MessageSquare className="h-4 w-4 text-white" />
-            </span>
-            <span className="text-sm font-semibold text-white">
-              CRM Template for WhatsApp
-            </span>
+          <Link href="/" aria-label="Ticonnect WhatsApp CRM home">
+            <TiconnectLogo showSubtitle textClassName="text-base" />
           </Link>
           <p className="mt-3 max-w-sm text-sm text-slate-500">
-            One toolkit for your WhatsApp business — shared inbox, pipelines,
-            broadcasts, and automations.
+            Ticonnect WhatsApp CRM is a Ticode Technologies product for teams
+            running customer conversations, sales pipelines, broadcasts, and
+            automations.
           </p>
         </div>
 
         <FooterColumn
           title="Product"
           links={[
-            { href: '#features', label: 'Features' },
-            { href: '#how-it-works', label: 'How it works' },
+            { href: '#features', label: 'Platform' },
+            { href: '#inbox', label: 'Inbox' },
+            { href: '#automations', label: 'Automations' },
             { href: '#faq', label: 'FAQ' },
           ]}
         />
 
         <FooterColumn
-          title="Open source"
+          title="Resources"
           links={[
-            {
-              href: 'https://github.com/ArnasDon/wacrm',
-              label: 'GitHub repo',
-              external: true,
-            },
-            { href: '#self-host', label: 'Self-host' },
-            { href: '/docs', label: 'Docs' },
-            {
-              href: 'https://www.hostinger.com/web-apps-hosting',
-              label: 'Deploy on Hostinger',
-              external: true,
-            },
+            { href: '#operations', label: 'Operations' },
+            { href: '#how-it-works', label: 'Setup' },
+            { href: '#faq', label: 'FAQ' },
           ]}
         />
 
         <FooterColumn
           title="Account"
           links={[
-            { href: '/signup', label: 'Get started' },
+            { href: '/signup', label: 'Start free' },
             { href: '/login', label: 'Sign in' },
             { href: '/forgot-password', label: 'Forgot password' },
           ]}
@@ -64,13 +48,12 @@ export function Footer() {
 
       <div className="border-t border-slate-900">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-start justify-between gap-3 px-6 py-5 text-xs text-slate-500 sm:flex-row sm:items-center">
-          <span>© {year} CRM Template for WhatsApp. All rights reserved.</span>
-          <span>Built on the official WhatsApp Business API.</span>
+          <span>&copy; {year} Ticode Technologies. All rights reserved.</span>
+          <span>Built for the official WhatsApp Business API.</span>
         </div>
         <div className="mx-auto w-full max-w-7xl px-6 pb-5 text-xs leading-relaxed text-slate-600">
-          WhatsApp® is a registered trademark of Meta Platforms, Inc.
-          Hostinger is not affiliated with, endorsed by, or sponsored by
-          Meta Platforms, Inc.
+          WhatsApp is a registered trademark of Meta Platforms, Inc. Ticode is
+          not affiliated with, endorsed by, or sponsored by Meta Platforms, Inc.
         </div>
       </div>
     </footer>

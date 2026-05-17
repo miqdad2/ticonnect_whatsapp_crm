@@ -5,23 +5,23 @@ const STEPS = [
   {
     num: '01',
     icon: Plug,
-    title: 'Connect your WhatsApp number',
+    title: 'Connect the channel',
     body:
-      'Paste your phone number ID and access token from Meta. Works with any Meta-approved WhatsApp Business API provider.',
+      'Add the WhatsApp Business credentials, verify the webhook, and keep the configuration visible from Settings.',
   },
   {
     num: '02',
     icon: Users,
-    title: 'Bring in your contacts',
+    title: 'Organize the team',
     body:
-      'Import a CSV, or let incoming messages build your contact list automatically. Tags and custom fields are ready from day one.',
+      'Import contacts, invite agents, define tags, and give every lead a clear owner before volume grows.',
   },
   {
     num: '03',
     icon: Zap,
-    title: 'Reply, automate, measure',
+    title: 'Run the workflow',
     body:
-      'Use the shared inbox with your team, set up flows for repeat work, and track what is actually moving the needle in your analytics.',
+      'Reply from the inbox, convert chats into deals, send campaigns, and automate the follow-up work.',
   },
 ]
 
@@ -29,39 +29,37 @@ export function HowItWorks() {
   return (
     <Section id="how-it-works">
       <SectionHeader
-        eyebrow="How it works"
-        title="Live in under 30 minutes"
-        description="Most teams are up and running before their first coffee refill. No onboarding calls required."
+        eyebrow="Launch path"
+        title="A clean first mile for teams moving fast"
+        description="Ticonnect WhatsApp CRM is designed so a business can connect WhatsApp, bring in contacts, and start operating from one workspace without a long implementation project."
       />
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        {STEPS.map((s) => {
-          const Icon = s.icon
-          return (
-            <div
-              key={s.num}
-              className="relative rounded-xl border border-slate-800 bg-slate-900/40 p-6"
-            >
-              <div className="flex items-start justify-between">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
+      <div className="relative">
+        <div
+          aria-hidden
+          className="absolute left-5 top-8 hidden h-px w-[calc(100%-2.5rem)] bg-slate-800 md:block"
+        />
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {STEPS.map((s) => {
+            const Icon = s.icon
+            return (
+              <div key={s.num} className="relative bg-slate-950 pt-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-sky-400/30 bg-slate-900 text-sky-300">
                   <Icon className="h-5 w-5" />
                 </div>
-                <span
-                  className="text-xl font-bold tracking-tight text-slate-800 tabular-nums"
-                  aria-hidden
-                >
-                  {s.num}
-                </span>
+                <div className="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                  Step {s.num}
+                </div>
+                <h3 className="mt-2 text-xl font-semibold text-white">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  {s.body}
+                </p>
               </div>
-              <h3 className="mt-4 text-base font-semibold text-white">
-                {s.title}
-              </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
-                {s.body}
-              </p>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
     </Section>
   )

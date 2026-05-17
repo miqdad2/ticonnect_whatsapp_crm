@@ -13,7 +13,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MessageSquare, CheckCircle, ArrowLeft } from "lucide-react";
+import { CheckCircle, ArrowLeft } from "lucide-react";
+import { TiconnectLogo } from "@/components/brand/ticonnect-logo";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -46,8 +47,8 @@ export default function ForgotPasswordPage() {
       <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4">
         <Card className="w-full max-w-md border-slate-800 bg-slate-900">
           <CardHeader className="items-center text-center">
-            <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10">
-              <CheckCircle className="h-6 w-6 text-violet-500" />
+            <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/10">
+              <CheckCircle className="h-6 w-6 text-sky-400" />
             </div>
             <CardTitle className="text-xl text-white">
               Check your email
@@ -77,9 +78,7 @@ export default function ForgotPasswordPage() {
     <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4">
       <Card className="w-full max-w-md border-slate-800 bg-slate-900">
         <CardHeader className="items-center text-center">
-          <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-500/10">
-            <MessageSquare className="h-6 w-6 text-violet-500" />
-          </div>
+          <TiconnectLogo showSubtitle textClassName="text-lg" />
           <CardTitle className="text-xl text-white">Reset password</CardTitle>
           <CardDescription className="text-slate-400">
             Enter your email and we&apos;ll send you a reset link
@@ -104,14 +103,14 @@ export default function ForgotPasswordPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="border-slate-700 bg-slate-800 text-white placeholder:text-slate-500 focus-visible:border-violet-500 focus-visible:ring-violet-500/20"
+                className="border-slate-700 bg-slate-800 text-white placeholder:text-slate-500 focus-visible:border-sky-500 focus-visible:ring-sky-500/20"
               />
             </div>
 
             <Button
               type="submit"
               disabled={loading}
-              className="mt-2 h-10 w-full bg-violet-600 text-white hover:bg-violet-500 disabled:opacity-50"
+              className="mt-2 h-10 w-full bg-sky-600 text-white hover:bg-sky-500 disabled:opacity-50"
             >
               {loading ? "Sending..." : "Send reset link"}
             </Button>

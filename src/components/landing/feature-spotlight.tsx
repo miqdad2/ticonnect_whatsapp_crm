@@ -32,15 +32,15 @@ export function FeatureSpotlight({
     <Section id={anchorId} className="py-16 sm:py-20">
       <div
         className={cn(
-          'grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16',
+          'grid grid-cols-1 items-center gap-12 rounded-xl border border-slate-800 bg-slate-900/25 p-5 sm:p-8 lg:grid-cols-2 lg:gap-16',
           reverse && 'lg:[&>*:first-child]:order-2',
         )}
       >
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wider text-violet-400">
+          <p className="text-xs font-semibold uppercase tracking-wider text-sky-400">
             {eyebrow}
           </p>
-          <h3 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
+          <h3 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-4xl">
             {title}
           </h3>
           <p className="mt-4 text-base leading-relaxed text-slate-400">
@@ -50,7 +50,7 @@ export function FeatureSpotlight({
             <ul className="mt-5 space-y-2.5">
               {bullets.map((b) => (
                 <li key={b} className="flex items-start gap-2.5 text-sm text-slate-300">
-                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-violet-400" />
+                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-sky-400" />
                   <span>{b}</span>
                 </li>
               ))}

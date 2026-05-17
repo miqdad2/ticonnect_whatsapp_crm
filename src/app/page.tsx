@@ -17,13 +17,9 @@ import { JsonLd } from '@/components/seo/json-ld'
 import { landingPageLd } from '@/lib/seo/structured-data'
 import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from '@/lib/seo/site-config'
 
-// Landing-specific metadata. Most fields are inherited from the root
-// layout's metadata — we override title (so the hero copy shows in
-// SERPs / tab titles) and set an explicit canonical for "/" to avoid
-// trailing-slash duplicate-content signals.
 export const metadata: Metadata = {
   title: {
-    absolute: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    absolute: `${SITE_NAME} - ${SITE_TAGLINE}`,
   },
   description: SITE_DESCRIPTION,
   alternates: {
@@ -31,14 +27,9 @@ export const metadata: Metadata = {
   },
 }
 
-// Marketing landing. Visible at / for everyone (auth redirect that
-// used to send anonymous visitors to /login was removed). Authed users
-// still see this page; the nav swaps its CTA to "Go to Dashboard".
 export default function LandingPage() {
   return (
     <div className="bg-slate-950 text-slate-100">
-      {/* JSON-LD — WebSite, Organization, SoftwareApplication, FAQPage.
-          Emitted before any visible content so crawlers hit it first. */}
       <JsonLd data={landingPageLd()} />
       <LandingNav />
       <main>
@@ -49,13 +40,13 @@ export default function LandingPage() {
         <FeatureSpotlight
           anchorId="inbox"
           eyebrow="Shared inbox"
-          title="Never drop a WhatsApp conversation again"
-          body="Your whole team works from one inbox. Conversations can be assigned, tagged, and handed off without losing context. Real-time updates so two agents never reply to the same thread at the same time."
+          title="Keep every customer conversation owned and visible"
+          body="Your whole team works from one Ticonnect WhatsApp CRM inbox. Conversations can be assigned, tagged, and handed off without losing context. Real-time updates keep agents aligned before they reply."
           bullets={[
             'Assign threads to specific agents or round-robin across the team',
             'Internal notes that only your team sees',
             'Unread indicators so urgent replies never slip through',
-            'Deep-link into any conversation from the dashboard',
+            'Deep-link into any conversation from the Ticonnect WhatsApp CRM dashboard',
           ]}
           visual={<InboxMock />}
         />
@@ -66,10 +57,10 @@ export default function LandingPage() {
           anchorId="automations"
           eyebrow="No-code automations"
           title="Automate the repetitive, focus on the humans"
-          body="Build flows that react to WhatsApp events: welcome new contacts, chase unanswered replies, route leads by keyword. Conditions, waits, tags, deals — all with a visual builder that feels like Figma for workflows."
+          body="Build flows that react to customer events: welcome new contacts, chase unanswered replies, route leads by keyword. Conditions, waits, tags, deals, and webhooks sit in a visual builder."
           bullets={[
             'Triggers for new messages, new contacts, tag changes, keywords, schedules',
-            'Actions: send message / template, add tag, create deal, webhook, and more',
+            'Actions: send message or template, add tag, create deal, webhook, and more',
             'Conditional branches and wait steps for human-time delays',
             'Per-run logs so you always know what ran and why',
           ]}
@@ -81,7 +72,7 @@ export default function LandingPage() {
           anchorId="pipelines"
           eyebrow="Sales pipelines"
           title="Turn conversations into revenue"
-          body="Drag deals through custom stages, link them to contacts, and see exactly where revenue is getting stuck. Every deal keeps its WhatsApp thread one click away — so context never gets lost on a handoff."
+          body="Drag deals through custom stages, link them to contacts, and see exactly where revenue is getting stuck. Every deal keeps its conversation one click away so context survives handoffs."
           bullets={[
             'Unlimited pipelines and stages',
             'Kanban board with drag-and-drop',
@@ -97,7 +88,7 @@ export default function LandingPage() {
           title="See what is actually working"
           body="Response times, daily volume, pipeline value, and a cross-module activity feed. The dashboard tells you where attention is needed without you building a single chart."
           bullets={[
-            'Active conversations, new contacts, open deal value — live',
+            'Active conversations, new contacts, open deal value - live',
             'Conversations over time for 7, 30, or 90 days',
             'Average first-response time by weekday against your target',
             'Activity feed merged across messages, deals, broadcasts, automations',

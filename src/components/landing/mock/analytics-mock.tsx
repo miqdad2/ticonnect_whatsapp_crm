@@ -1,11 +1,4 @@
-/**
- * Miniature analytics panel with a line chart + 3 stat tiles.
- * Shown alongside the dashboard feature spotlight. SVG rendered
- * inline so there's no image to load.
- */
 export function AnalyticsMock() {
-  // Pre-sampled line data so the curve looks "realistic" without
-  // being random (we want the same pleasing shape on every render).
   const incoming = [4, 6, 3, 7, 9, 6, 11, 14, 10, 13, 16, 18, 15, 22]
   const outgoing = [3, 5, 2, 6, 7, 5, 9, 12, 9, 11, 14, 15, 13, 19]
 
@@ -22,13 +15,13 @@ export function AnalyticsMock() {
     arr.map((v, i) => `${i === 0 ? 'M' : 'L'}${x(i)},${y(v)}`).join(' ')
 
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl">
+    <div className="w-full overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-2xl">
       <div className="flex items-center gap-1.5 border-b border-slate-800 bg-slate-900 px-3 py-2">
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="ml-3 text-[10px] text-slate-500">
-          Dashboard — CRM Template for WhatsApp
+          Dashboard - Ticonnect WhatsApp CRM
         </span>
       </div>
 
@@ -49,7 +42,7 @@ export function AnalyticsMock() {
               </div>
               <div
                 className={`text-[10px] tabular-nums ${
-                  s.positive ? 'text-violet-400' : 'text-red-400'
+                  s.positive ? 'text-sky-400' : 'text-red-400'
                 }`}
               >
                 {s.delta}
@@ -69,7 +62,7 @@ export function AnalyticsMock() {
                 Incoming
               </span>
               <span className="inline-flex items-center gap-1 text-[9px] text-slate-500">
-                <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+                <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
                 Outgoing
               </span>
             </div>
@@ -91,7 +84,7 @@ export function AnalyticsMock() {
                 strokeDasharray="3 3"
               />
             ))}
-            <path d={path(outgoing)} fill="none" stroke="#7c3aed" strokeWidth={1.5} />
+            <path d={path(outgoing)} fill="none" stroke="#0284c7" strokeWidth={1.5} />
             <path d={path(incoming)} fill="none" stroke="#3b82f6" strokeWidth={1.5} />
           </svg>
         </div>

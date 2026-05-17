@@ -1,79 +1,58 @@
-import Link from 'next/link'
-import { ArrowRight, BookOpen, Server } from 'lucide-react'
-import { Section, SectionHeader } from './section'
-import { GithubIcon } from './github-icon'
+import { Clock3, Headphones, ShieldCheck } from 'lucide-react'
+import { Section } from './section'
 
-const REPO_URL = 'https://github.com/ArnasDon/wacrm'
-const HOSTINGER_URL = 'https://www.hostinger.com/web-apps-hosting'
+const TRUST = [
+  {
+    title: 'Built on the official API',
+    body: 'Use Meta WhatsApp Business API credentials, approved templates, webhooks, and clear delivery states.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Made for daily operators',
+    body: 'Agents get assignment, notes, tags, contact history, and a clear next action instead of a noisy chat list.',
+    icon: Headphones,
+  },
+  {
+    title: 'Faster response loops',
+    body: 'The CRM keeps leads moving with reminders, automations, broadcasts, and pipeline visibility.',
+    icon: Clock3,
+  },
+]
 
 export function OpenSource() {
   return (
-    <Section id="self-host">
-      <SectionHeader
-        eyebrow="Open source"
-        title="Fork it, brand it, host it"
-        description="This CRM template for WhatsApp is a template you can take and make your own. Grab the source on GitHub and self-host — we recommend Hostinger Managed Node.js Hosting for a zero-ops deploy."
-      />
-
-      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2">
-        <a
-          href={REPO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex flex-col rounded-xl border border-slate-800 bg-slate-900/40 p-6 transition-colors hover:border-slate-700 hover:bg-slate-900/70"
-        >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800 text-slate-100">
-            <GithubIcon className="h-5 w-5" />
-          </div>
-          <h3 className="mt-4 text-base font-semibold text-white">
-            Source on GitHub
-          </h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
-            Clone or fork the repository, tweak the code, ship your own build.
-            MIT-style freedom with the full CRM underneath.
+    <Section id="operations" className="py-16 sm:py-20">
+      <div className="grid grid-cols-1 gap-8 rounded-xl border border-slate-800 bg-slate-900/35 p-6 sm:p-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-sky-400">
+            Client confidence
           </p>
-          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 transition-colors group-hover:text-violet-300">
-            ArnasDon/wacrm
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
-
-        <a
-          href={HOSTINGER_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex flex-col rounded-xl border border-violet-500/20 bg-slate-900/40 p-6 transition-colors hover:border-violet-500/40 hover:bg-slate-900/70"
-        >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
-            <Server className="h-5 w-5" />
-          </div>
-          <h3 className="mt-4 flex flex-wrap items-center gap-2 text-base font-semibold text-white">
-            Deploy on Hostinger
-            <span className="rounded-full bg-violet-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-violet-400">
-              Recommended
-            </span>
-          </h3>
-          <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
-            Best fit for this template — connect your forked repo to
-            Managed Node.js Hosting and your CRM is live in a few minutes. No
-            servers to patch.
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Looks professional because the workflow is professional.
+          </h2>
+          <p className="mt-4 text-base leading-7 text-slate-400">
+            A polished website gets attention. A polished operating system wins
+            trust after the first conversation. Ticonnect WhatsApp CRM is built
+            around speed, ownership, and follow-through.
           </p>
-          <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-violet-400 transition-colors group-hover:text-violet-300">
-            Managed Node.js Hosting
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-          </span>
-        </a>
-      </div>
+        </div>
 
-      <div className="mx-auto mt-6 flex max-w-5xl items-center justify-center">
-        <Link
-          href="/docs"
-          className="group inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/40 px-5 py-3 text-sm font-medium text-slate-200 transition-colors hover:border-slate-700 hover:bg-slate-900/70 hover:text-white"
-        >
-          <BookOpen className="h-4 w-4 text-violet-400" />
-          Read the full documentation
-          <ArrowRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-slate-200" />
-        </Link>
+        <div className="grid grid-cols-1 gap-4">
+          {TRUST.map((item) => {
+            const Icon = item.icon
+            return (
+              <div key={item.title} className="flex gap-4 border-b border-slate-800 pb-4 last:border-b-0 last:pb-0">
+                <Icon className="mt-1 h-5 w-5 shrink-0 text-sky-300" />
+                <div>
+                  <h3 className="font-semibold text-white">{item.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-400">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </Section>
   )

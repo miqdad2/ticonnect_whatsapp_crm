@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
+import { RegisterServiceWorker } from "@/components/pwa/register-service-worker";
 import "./globals.css";
 import {
   OG_IMAGE_ALT,
@@ -16,19 +17,16 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-// Consolidated site-wide metadata. Page-specific metadata (landing,
-// auth pages, etc.) override the narrower fields (title, description,
-// robots); defaults defined here are inherited everywhere else so we
-// never ship a page without OpenGraph / Twitter coverage.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
-    template: `%s — ${SITE_NAME}`,
+    default: `${SITE_NAME} - ${SITE_TAGLINE}`,
+    template: `%s - ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: SITE_KEYWORDS,
   applicationName: SITE_NAME,
+  manifest: "/manifest.webmanifest",
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -39,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    title: `${SITE_NAME} - ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
     locale: "en_US",
@@ -54,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — ${SITE_TAGLINE}`,
+    title: `${SITE_NAME} - ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
     images: ["/opengraph-image"],
   },
@@ -69,7 +67,20 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: "/icon" }],
+    icon: [
+      { url: "/logo.png", type: "image/png" },
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: [{ url: "/logo.png", type: "image/png" }],
+  },
+  appleWebApp: {
+    capable: true,
+    title: "Ticonnect",
+    statusBarStyle: "black-translucent",
   },
   formatDetection: {
     email: false,
@@ -78,9 +89,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Dark theme color for the mobile browser chrome.
 export const viewport: Viewport = {
-  themeColor: "#020617",
+  themeColor: "#0b1726",
   colorScheme: "dark",
 };
 
@@ -93,6 +103,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full bg-slate-950 text-white font-sans">
         {children}
+        <RegisterServiceWorker />
         <Toaster
           theme="dark"
           position="top-right"

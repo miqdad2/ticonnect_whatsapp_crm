@@ -1,15 +1,10 @@
 import { MessageSquare, Zap, GitBranch, Hourglass } from 'lucide-react'
 
-/**
- * Miniature flow-builder for the Automations feature spotlight.
- * Mirrors the real builder's look (trigger + stepped cards + arrows)
- * but is pure presentation — no interactivity.
- */
 export function AutomationMock() {
   const steps = [
     {
       kind: 'trigger',
-      label: 'First Message from Contact',
+      label: 'First message from contact',
       icon: Zap,
       accent: 'border-l-blue-500',
       badgeClass: 'bg-blue-500/10 text-blue-400',
@@ -17,10 +12,10 @@ export function AutomationMock() {
     },
     {
       kind: 'action',
-      label: 'Send "Hi! 👋 Thanks for reaching out."',
+      label: 'Send "Hi! Thanks for reaching out."',
       icon: MessageSquare,
-      accent: 'border-l-violet-500',
-      badgeClass: 'bg-violet-500/10 text-violet-400',
+      accent: 'border-l-sky-500',
+      badgeClass: 'bg-sky-500/10 text-sky-400',
       kindLabel: 'ACTION',
     },
     {
@@ -33,7 +28,7 @@ export function AutomationMock() {
     },
     {
       kind: 'condition',
-      label: 'If tag = "lead" → assign to sales',
+      label: 'If tag = "lead", assign to sales',
       icon: GitBranch,
       accent: 'border-l-amber-500',
       badgeClass: 'bg-amber-500/10 text-amber-400',
@@ -42,17 +37,16 @@ export function AutomationMock() {
   ]
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl">
+    <div className="relative w-full overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-2xl">
       <div className="flex items-center gap-1.5 border-b border-slate-800 bg-slate-900 px-3 py-2">
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="h-2.5 w-2.5 rounded-full bg-slate-700" />
         <span className="ml-3 text-[10px] text-slate-500">
-          Automations — CRM Template for WhatsApp
+          Automations - Ticonnect WhatsApp CRM
         </span>
       </div>
 
-      {/* Dotted canvas — matches the real flow builder's background. */}
       <div
         className="relative flex flex-col items-center gap-0 px-6 py-6"
         style={{

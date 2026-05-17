@@ -238,7 +238,7 @@ function LineSvg({
           ) : null,
         )}
 
-        {/* Outgoing polyline (violet) */}
+        {/* Outgoing polyline (sky) */}
         <path
           d={outgoingPath}
           fill="none"
@@ -289,8 +289,8 @@ function LineSvg({
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500" />
               {hovered.incoming} incoming
             </span>
-            <span className="flex items-center gap-1.5 text-violet-300">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-violet-500" />
+            <span className="flex items-center gap-1.5 text-sky-300">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-sky-500" />
               {hovered.outgoing} outgoing
             </span>
           </div>
