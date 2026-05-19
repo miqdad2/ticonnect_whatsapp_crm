@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils'
-import type { ReactNode } from 'react'
+import { cn } from '@/lib/utils';
+import type { ReactNode } from 'react';
 
 /**
  * Shared section wrapper — consistent horizontal padding, max-width,
@@ -12,11 +12,11 @@ export function Section({
   children,
   tight,
 }: {
-  id?: string
-  className?: string
-  children: ReactNode
+  id?: string;
+  className?: string;
+  children: ReactNode;
   /** Compact vertical padding — useful for nav strips / dense sections. */
-  tight?: boolean
+  tight?: boolean;
 }) {
   return (
     <section
@@ -24,12 +24,12 @@ export function Section({
       className={cn(
         'mx-auto w-full max-w-7xl px-6',
         tight ? 'py-6' : 'py-20 sm:py-24',
-        className,
+        className
       )}
     >
       {children}
     </section>
-  )
+  );
 }
 
 /**
@@ -43,27 +43,28 @@ export function SectionHeader({
   description,
   align = 'center',
 }: {
-  eyebrow?: string
-  title: string
-  description?: string
-  align?: 'center' | 'left'
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'center' | 'left';
 }) {
-  const base =
-    align === 'center' ? 'text-center' : 'text-left'
-  const max = align === 'center' ? 'max-w-2xl mx-auto' : 'max-w-2xl'
+  const base = align === 'center' ? 'text-center' : 'text-left';
+  const max = align === 'center' ? 'max-w-2xl mx-auto' : 'max-w-2xl';
   return (
     <div className={cn(base, max, 'mb-12')}>
       {eyebrow && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-sky-400">
+        <p className="mb-3 text-xs font-extrabold text-emerald-600 uppercase">
           {eyebrow}
         </p>
       )}
-      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+      <h2 className="font-heading text-3xl font-extrabold text-[#071538] sm:text-5xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base text-slate-400">{description}</p>
+        <p className="mt-4 text-base leading-7 text-slate-600">
+          {description}
+        </p>
       )}
     </div>
-  )
+  );
 }

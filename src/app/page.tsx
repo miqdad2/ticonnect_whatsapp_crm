@@ -1,21 +1,25 @@
-import type { Metadata } from 'next'
+import type { Metadata } from 'next';
 
-import { LandingNav } from '@/components/landing/nav'
-import { Hero } from '@/components/landing/hero'
-import { FeaturesGrid } from '@/components/landing/features-grid'
-import { HowItWorks } from '@/components/landing/how-it-works'
-import { FeatureSpotlight } from '@/components/landing/feature-spotlight'
-import { FAQ } from '@/components/landing/faq'
-import { OpenSource } from '@/components/landing/open-source'
-import { CtaBanner } from '@/components/landing/cta-banner'
-import { Footer } from '@/components/landing/footer'
-import { InboxMock } from '@/components/landing/mock/inbox-mock'
-import { PipelineMock } from '@/components/landing/mock/pipeline-mock'
-import { AutomationMock } from '@/components/landing/mock/automation-mock'
-import { AnalyticsMock } from '@/components/landing/mock/analytics-mock'
-import { JsonLd } from '@/components/seo/json-ld'
-import { landingPageLd } from '@/lib/seo/structured-data'
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TAGLINE } from '@/lib/seo/site-config'
+import { LandingNav } from '@/components/landing/nav';
+import { Hero } from '@/components/landing/hero';
+import { FeaturesGrid } from '@/components/landing/features-grid';
+import { HowItWorks } from '@/components/landing/how-it-works';
+import { FeatureSpotlight } from '@/components/landing/feature-spotlight';
+import { FAQ } from '@/components/landing/faq';
+import { OpenSource } from '@/components/landing/open-source';
+import { CtaBanner } from '@/components/landing/cta-banner';
+import { Footer } from '@/components/landing/footer';
+import { InboxMock } from '@/components/landing/mock/inbox-mock';
+import { PipelineMock } from '@/components/landing/mock/pipeline-mock';
+import { AutomationMock } from '@/components/landing/mock/automation-mock';
+import { AnalyticsMock } from '@/components/landing/mock/analytics-mock';
+import { JsonLd } from '@/components/seo/json-ld';
+import { landingPageLd } from '@/lib/seo/structured-data';
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+} from '@/lib/seo/site-config';
 
 export const metadata: Metadata = {
   title: {
@@ -25,11 +29,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-}
+};
 
 export default function LandingPage() {
   return (
-    <div className="bg-slate-950 text-slate-100">
+    <div className="bg-[#f7fbff] text-slate-950">
       <JsonLd data={landingPageLd()} />
       <LandingNav />
       <main>
@@ -105,5 +109,5 @@ export default function LandingPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

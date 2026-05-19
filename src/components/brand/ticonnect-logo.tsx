@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 export function TiconnectMark({ className }: { className?: string }) {
   return (
@@ -8,7 +8,7 @@ export function TiconnectMark({ className }: { className?: string }) {
       alt=""
       width={48}
       height={48}
-      className={cn("h-8 w-8 object-contain", className)}
+      className={cn('h-8 w-8 object-contain', className)}
     />
   );
 }
@@ -19,23 +19,27 @@ export function TiconnectLogo({
   textClassName,
   subtitleClassName,
   showSubtitle = false,
+  showMark = true,
 }: {
   className?: string;
   markClassName?: string;
   textClassName?: string;
   subtitleClassName?: string;
   showSubtitle?: boolean;
+  showMark?: boolean;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-slate-200/70">
-        <TiconnectMark className={cn("h-6 w-7", markClassName)} />
-      </span>
+    <span className={cn('inline-flex items-center gap-2.5', className)}>
+      {showMark && (
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-slate-200/70">
+          <TiconnectMark className={cn('h-6 w-7', markClassName)} />
+        </span>
+      )}
       <span className="min-w-0">
         <span
           className={cn(
-            "block text-base font-bold leading-none text-white",
-            textClassName,
+            'font-brand block text-base leading-none font-bold text-white',
+            textClassName
           )}
         >
           Ticonnect
@@ -43,11 +47,11 @@ export function TiconnectLogo({
         {showSubtitle && (
           <span
             className={cn(
-              "mt-1 block text-[10px] font-semibold uppercase leading-none tracking-[0.28em] text-sky-300",
-              subtitleClassName,
+              'mt-1.5 block text-[9px] leading-none font-extrabold tracking-[0.42em] text-blue-500',
+              subtitleClassName
             )}
           >
-            WhatsApp CRM
+            WHATSAPP CRM
           </span>
         )}
       </span>

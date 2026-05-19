@@ -1,23 +1,25 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { createClient } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { useState } from 'react';
+import Link from 'next/link';
+import { createClient } from '@/lib/supabase/client';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { CheckCircle, ArrowLeft } from "lucide-react";
-import { TiconnectLogo } from "@/components/brand/ticonnect-logo";
+  AuthShell,
+  AuthSuccessIcon,
+  authErrorClass,
+  authInputClass,
+  authLabelClass,
+  authLinkClass,
+  authOutlineButtonClass,
+  authPrimaryButtonClass,
+} from '@/components/auth/auth-shell';
+import { ArrowLeft } from 'lucide-react';
 
 export default function ForgotPasswordPage() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -44,87 +46,65 @@ export default function ForgotPasswordPage() {
 
   if (success) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4">
-        <Card className="w-full max-w-md border-slate-800 bg-slate-900">
-          <CardHeader className="items-center text-center">
-            <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/10">
-              <CheckCircle className="h-6 w-6 text-sky-400" />
-            </div>
-            <CardTitle className="text-xl text-white">
-              Check your email
-            </CardTitle>
-            <CardDescription className="text-slate-400">
-              We&apos;ve sent a password reset link to{" "}
-              <span className="text-white">{email}</span>. Please check your
-              inbox.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Link href="/login">
-              <Button
-                variant="outline"
-                className="w-full border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
-              >
-                Back to sign in
-              </Button>
-            </Link>
-          </CardContent>
-        </Card>
-      </div>
+      <AuthShell
+        title="Check your email"
+        description={
+          <>
+            We&apos;ve sent a password reset link to{' '}
+            <span className="font-bold text-[#071538]">{email}</span>. Please
+            check your inbox.
+          </>
+        }
+      >
+        <AuthSuccessIcon />
+        <Link href="/login">
+          <Button variant="outline" className={authOutlineButtonClass}>
+            Back to sign in
+          </Button>
+        </Link>
+      </AuthShell>
     );
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4">
-      <Card className="w-full max-w-md border-slate-800 bg-slate-900">
-        <CardHeader className="items-center text-center">
-          <TiconnectLogo showSubtitle textClassName="text-lg" />
-          <CardTitle className="text-xl text-white">Reset password</CardTitle>
-          <CardDescription className="text-slate-400">
-            Enter your email and we&apos;ll send you a reset link
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleReset} className="flex flex-col gap-4">
-            {error && (
-              <div className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400">
-                {error}
-              </div>
-            )}
+    <AuthShell
+      title="Reset password"
+      description="Enter your email and we'll send you a reset link."
+    >
+      <form onSubmit={handleReset} className="flex flex-col gap-4">
+        {error && <div className={authErrorClass}>{error}</div>}
 
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="email" className="text-slate-300">
-                Email
-              </Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="border-slate-700 bg-slate-800 text-white placeholder:text-slate-500 focus-visible:border-sky-500 focus-visible:ring-sky-500/20"
-              />
-            </div>
+        <div className="flex flex-col gap-2">
+          <Label htmlFor="email" className={authLabelClass}>
+            Email
+          </Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className={authInputClass}
+          />
+        </div>
 
-            <Button
-              type="submit"
-              disabled={loading}
-              className="mt-2 h-10 w-full bg-sky-600 text-white hover:bg-sky-500 disabled:opacity-50"
-            >
-              {loading ? "Sending..." : "Send reset link"}
-            </Button>
-          </form>
+        <Button
+          type="submit"
+          disabled={loading}
+          className={authPrimaryButtonClass}
+        >
+          {loading ? 'Sending...' : 'Send reset link'}
+        </Button>
+      </form>
 
-          <Link
-            href="/login"
-            className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-400 hover:text-slate-300"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to sign in
-          </Link>
-        </CardContent>
-      </Card>
-    </div>
+      <Link
+        href="/login"
+        className={`mt-6 flex items-center justify-center gap-2 text-sm ${authLinkClass}`}
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Back to sign in
+      </Link>
+    </AuthShell>
   );
 }

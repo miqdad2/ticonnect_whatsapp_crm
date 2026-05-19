@@ -1,8 +1,8 @@
-import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-import { Toaster } from "sonner";
-import { RegisterServiceWorker } from "@/components/pwa/register-service-worker";
-import "./globals.css";
+import type { Metadata, Viewport } from 'next';
+import { Comfortaa, Manrope, Montserrat } from 'next/font/google';
+import { Toaster } from 'sonner';
+import { RegisterServiceWorker } from '@/components/pwa/register-service-worker';
+import './globals.css';
 import {
   OG_IMAGE_ALT,
   SITE_DESCRIPTION,
@@ -10,11 +10,23 @@ import {
   SITE_NAME,
   SITE_TAGLINE,
   SITE_URL,
-} from "@/lib/seo/site-config";
+} from '@/lib/seo/site-config';
 
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
+const manrope = Manrope({
+  variable: '--font-manrope',
+  subsets: ['latin'],
+});
+
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  subsets: ['latin'],
+  weight: ['600', '700', '800', '900'],
+});
+
+const comfortaa = Comfortaa({
+  variable: '--font-comfortaa',
+  subsets: ['latin'],
+  weight: ['700'],
 });
 
 export const metadata: Metadata = {
@@ -26,24 +38,24 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: SITE_KEYWORDS,
   applicationName: SITE_NAME,
-  manifest: "/manifest.webmanifest",
+  manifest: '/manifest.webmanifest',
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
-  category: "Business Software",
+  category: 'Business Software',
   alternates: {
-    canonical: "/",
+    canonical: '/',
   },
   openGraph: {
-    type: "website",
+    type: 'website',
     siteName: SITE_NAME,
     title: `${SITE_NAME} - ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
-    locale: "en_US",
+    locale: 'en_US',
     images: [
       {
-        url: "/opengraph-image",
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: OG_IMAGE_ALT,
@@ -51,10 +63,10 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: `${SITE_NAME} - ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
-    images: ["/opengraph-image"],
+    images: ['/opengraph-image'],
   },
   robots: {
     index: true,
@@ -62,25 +74,25 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   icons: {
     icon: [
-      { url: "/logo.png", type: "image/png" },
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+      { url: '/logo.png', type: 'image/png' },
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
     apple: [
-      { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
     ],
-    shortcut: [{ url: "/logo.png", type: "image/png" }],
+    shortcut: [{ url: '/logo.png', type: 'image/png' }],
   },
   appleWebApp: {
     capable: true,
-    title: "Ticonnect",
-    statusBarStyle: "black-translucent",
+    title: 'Ticonnect',
+    statusBarStyle: 'black-translucent',
   },
   formatDetection: {
     email: false,
@@ -90,8 +102,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1726",
-  colorScheme: "dark",
+  themeColor: '#0b1726',
+  colorScheme: 'dark',
 };
 
 export default function RootLayout({
@@ -100,8 +112,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full bg-slate-950 text-white font-sans">
+    <html
+      lang="en"
+      className={`${manrope.variable} ${montserrat.variable} ${comfortaa.variable} h-full antialiased`}
+    >
+      <body className="min-h-full bg-slate-950 font-sans text-white">
         {children}
         <RegisterServiceWorker />
         <Toaster
@@ -109,9 +124,9 @@ export default function RootLayout({
           position="top-right"
           toastOptions={{
             style: {
-              background: "rgb(30 41 59)",
-              border: "1px solid rgb(51 65 85)",
-              color: "white",
+              background: 'rgb(30 41 59)',
+              border: '1px solid rgb(51 65 85)',
+              color: 'white',
             },
           }}
         />
